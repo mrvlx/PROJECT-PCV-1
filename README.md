@@ -85,12 +85,11 @@ PROJECT-PCV-1/
 │   └── game.py             # Logika game, entitas, dan tabrakan
 ├── docs/                   # Dokumentasi media (Screenshot/Video)
 ├── main.py                 # Game loop utama dan rendering
-├── debug_pipeline.py       # Visualisasi tahap pipeline CV
 ├── requirements.txt        # Dependensi Python
 └── README.md               # Dokumentasi proyek
 
 ---
-
+```
 ## Instalasi dan Persiapan
 
 ### Prasyarat
@@ -128,24 +127,18 @@ python -m src.calibration
 python main.py
 ```
 
-### 3. Debugging Pipeline (Opsional)
-Untuk melihat visualisasi mentah dari pipeline CV (mask, pembersihan morfologi, kotak tracking) guna keperluan debugging atau laporan akademik:
-```bash
-python debug_pipeline.py
-```
-
 ---
 
 ## Dokumentasi Visual
 
 *(Bagian ini berisi placeholder untuk media yang akan diunggah ke direktori `docs/`)*
 
-| Alat Kalibrasi HSV | Debugging Pipeline CV | Layar Game Over |
-| :---: | :---: | :---: |
-| ![Kalibrasi](docs/screenshots/calibration.png) | ![Debug Pipeline](docs/screenshots/pipeline-debug.png) | ![Game Over](docs/screenshots/game-over.png) |
+| Alat Kalibrasi HSV | Layar Game Over |
+| :---: | :---: |
+| ![Kalibrasi](docs/screenshots/calibration.png) | ![Game Over](docs/screenshots/game-over.png) |
 
 **Demonstrasi Gameplay:**
-[Tonton Video Demo Gameplay](docs/videos/gameplay-demo.mp4) *(Tautan menunggu unggahan video)*
+<video src="GANTI_DENGAN_URL_VIDEO" controls width="640"></video>
 
 ---
 

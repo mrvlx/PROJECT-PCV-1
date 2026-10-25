@@ -8,7 +8,6 @@ def gamma_correction(img, gamma=1.0):
 
 
 def perbaiki_cahaya(hsv, gamma=0.7):
-    # P4: proses per komponen -> cuma V yang diubah, H jangan disentuh
     hsv = hsv.copy()
     hsv[:, :, 2] = gamma_correction(hsv[:, :, 2], gamma)
     return hsv

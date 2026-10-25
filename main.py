@@ -82,7 +82,20 @@ def main():
 
     wayang_merah_bgr, wayang_merah_alpha = load_png("assets/wayang/bima.png")
     wayang_biru_bgr, wayang_biru_alpha = load_png("assets/wayang/arjuna.png")
+    scale = 0.7
     
+    if wayang_merah_bgr is not None:
+        h, w = wayang_merah_bgr.shape[:2]
+        ukuran_baru = (int(w * scale), int(h * scale))
+        wayang_merah_bgr = cv2.resize(wayang_merah_bgr, ukuran_baru, interpolation=cv2.INTER_AREA)
+        wayang_merah_alpha = cv2.resize(wayang_merah_alpha, ukuran_baru, interpolation=cv2.INTER_AREA)
+
+    if wayang_biru_bgr is not None:
+        h, w = wayang_biru_bgr.shape[:2]
+        ukuran_baru = (int(w * scale), int(h * scale))
+        wayang_biru_bgr = cv2.resize(wayang_biru_bgr, ukuran_baru, interpolation=cv2.INTER_AREA)
+        wayang_biru_alpha = cv2.resize(wayang_biru_alpha, ukuran_baru, interpolation=cv2.INTER_AREA)
+
     init_audio()
     play_bgm("assets/sounds/bgm_gamelan.mp3")
 

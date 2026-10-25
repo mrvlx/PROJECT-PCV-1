@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def gamma_correction(img, gamma=1.0):
     #s = 255*(r/255)^gamma
     f = img.astype(np.float64) / 255.0

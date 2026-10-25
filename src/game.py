@@ -77,8 +77,8 @@ class Musuh:
 
 
 class Game:
-    LUAS_SMASH = 1900    # luas bbox buat dianggap "tangan dekat" -> setel!
-    CHARGE_MAX = 45      # frame nahan dua tangan dekat buat ultimate
+    LUAS_SMASH = 1900    
+    CHARGE_MAX = 45      
 
     def __init__(self, layar_w=800, layar_h=450, path_png_merah=None, path_png_biru=None):
         self.layar_w, self.layar_h = layar_w, layar_h
@@ -108,12 +108,11 @@ class Game:
                                 tipe, random.uniform(1.5, 3.0), path))
 
     def _kekuatan(self, tangan):
-        # tangan dekat = smash: damage tetap 1, cuma radius pukul yang lebar
         if tangan is None:
             return 0, 0
         if tangan['luas'] > self.LUAS_SMASH:
-            return 1, 75      # smash: radius besar, gampang kena
-        return 1, 45          # poke: radius kecil
+            return 1, 75      
+        return 1, 45          
 
     def _serang(self, tangan, musuh):
         dmg, radius = self._kekuatan(tangan)
@@ -137,8 +136,6 @@ class Game:
         if self.shake > 0:
             self.shake -= 1
 
-        # ultimate: dua tangan dekat kamera beruntun = GUNUNGAN
-        # dicek lewat radius 75 (mode smash), bukan lewat damage
         _, rk = self._kekuatan(kanan)
         _, rl = self._kekuatan(kiri)
         self.charge = self.charge + 1 if (rk == 75 and rl == 75) else 0
@@ -179,7 +176,7 @@ class Game:
                     self.shake = 4
                     play_sfx("assets/sounds/hit.wav")
                 else:
-                    self.efek_hit = 3   # tameng kena tapi belum mati
+                    self.efek_hit = 3   
 
             if m.sudah_lewat():
                 m.hidup = False

@@ -19,4 +19,4 @@ def play_sfx(path, volume=0.6):
         sfx.set_volume(volume)
         sfx.play()
     except Exception:
-        pass  #
+        pass  

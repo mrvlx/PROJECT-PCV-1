@@ -21,7 +21,6 @@ def load_background(path, w, h):
         return None
     img = cv2.resize(img, (w, h))
     if img.shape[2] == 4:
-        # png transparan: komposit ke hitam pakai rumus P4
         bgr = img[:, :, :3]
         a = img[:, :, 3].astype(np.float64) / 255.0
         img = alpha_blend_manual(bgr, a, np.zeros((h, w, 3), dtype=np.uint8))
@@ -29,7 +28,6 @@ def load_background(path, w, h):
 
 
 def background_fallback(w, h):
-    # gradasi emas-coklat ala kelir, dipakai kalau kelir.png belum ada
     grad = np.linspace(0.35, 1.0, h).reshape(h, 1)
     bg = np.zeros((h, w, 3), dtype=np.float64)
     bg[:, :, 0] = 20 * grad    # B
@@ -108,8 +106,10 @@ def main():
 
         prep = pra_proses(frame, gamma_val, kernel)
         merah, biru = deteksi_dan_bersihkan(prep, morph_k, kalibrasi)
-        kanan = skala_ke_display(lacak_tangan(merah))
-        kiri = skala_ke_display(lacak_tangan(biru))
+        tangan_kanan = lacak_tangan(merah)
+        tangan_kiri = lacak_tangan(biru)
+        kanan = skala_ke_display(tangan_kanan)
+        kiri = skala_ke_display(tangan_kiri)
 
         display = bg.copy()
         
@@ -120,11 +120,6 @@ def main():
             game.update(kanan, kiri)
         display = game.gambar(display)
 
-        prev_small = cv2.resize(frame, (200, 113))
-        display[DISP_H - 121:DISP_H - 8, DISP_W - 208:DISP_W - 8] = prev_small
-        cv2.rectangle(display, (DISP_W - 209, DISP_H - 122),
-                      (DISP_W - 8, DISP_H - 8), (255, 255, 255), 1)
-
         dt = time.time() - t0
         fps_list.append(1.0 / max(dt, 1e-6))
         if len(fps_list) > 30: fps_list.pop(0)
@@ -134,7 +129,12 @@ def main():
             cv2.putText(display, "PRESS SPACE TO START", (DISP_W // 2 - 160, DISP_H // 2), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2)
 
         cv2.imshow("Dalang Elemen", display)
-
+        prev = cv2.resize(frame, (320, 180))
+        for t, warna in [(tangan_kanan, (0, 0, 255)), (tangan_kiri, (255, 0, 0))]:
+            if t:
+                x, y, w, h = t['bbox']
+                cv2.rectangle(prev, (x * 2, y * 2), ((x + w) * 2, (y + h) * 2), warna, 1)
+        cv2.imshow("Kamera", prev)
         key = cv2.waitKey(1) & 0xFF
         if key in (27, ord('q')): break
         elif key == ord(' '): paused = not paused

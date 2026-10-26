@@ -161,10 +161,10 @@ class Game:
             m.update()
             kena, dmg = False, 0
 
-        if m.warna == 'biru' and kanan:
-            kena, dmg = self._serang(kanan, m)
-        elif m.warna == 'merah' and kiri:
-            kena, dmg = self._serang(kiri, m)
+            if m.warna == 'biru' and kanan:
+                kena, dmg = self._serang(kanan, m)
+            elif m.warna == 'merah' and kiri:
+                kena, dmg = self._serang(kiri, m)
 
             if kena:
                 m.hp -= dmg
@@ -176,7 +176,7 @@ class Game:
                     self.shake = 4
                     play_sfx("assets/sounds/hit.wav")
                 else:
-                    self.efek_hit = 3   
+                    self.efek_hit = 3
 
             if m.sudah_lewat():
                 m.hidup = False

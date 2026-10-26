@@ -5,7 +5,7 @@ Dalang Elemen adalah mini game pengolahan citra digital yang mengubah tangan pem
 Proyek ini dikembangkan sebagai implementasi akhir untuk mata kuliah **Pengolahan Citra dan Video** di Institut Teknologi Sepuluh Nopember (ITS). Seluruh pipeline *computer vision* dibangun dari awal menggunakan operasi matriks NumPy manual, tanpa mengandalkan model *pre-trained* atau *deep learning* (seperti MediaPipe atau YOLO), sesuai dengan kontrak perkuliahan.
 
 ![Gameplay Preview](docs/screenshots/gameplay.png)
-*(Catatan: Tangkapan layar belum diunggah. Gambar ini akan menampilkan latar kelir, wayang di tangan pemain, dan animasi musuh Cakil.)*
+
 
 ---
 
@@ -138,7 +138,7 @@ python main.py
 | ![Kalibrasi](docs/screenshots/calibration.png) | ![Game Over](docs/screenshots/game-over.png) |
 
 **Demonstrasi Gameplay:**
-<video src="GANTI_DENGAN_URL_VIDEO" controls width="640"></video>
+<video src="C:\Users\DELL\Documents\GitHub\PROJECT-PCV-1\docs\gameplay.mp4" controls width="640"></video>
 
 ---
 

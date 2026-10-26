@@ -131,14 +131,12 @@ python main.py
 
 ## Dokumentasi Visual
 
-*(Bagian ini berisi placeholder untuk media yang akan diunggah ke direktori `docs/`)*
-
 | Alat Kalibrasi HSV | Layar Game Over |
 | :---: | :---: |
 | ![Kalibrasi](docs/screenshots/calibration.png) | ![Game Over](docs/screenshots/game-over.png) |
 
 **Demonstrasi Gameplay:**
-<video src="C:\Users\DELL\Documents\GitHub\PROJECT-PCV-1\docs\gameplay.mp4" controls width="640"></video>
+<video src="https://github.com/user-attachments/assets/69a6a0d5-a175-4474-8f63-da6dcec54170" controls width="640"></video>
 
 ---
 

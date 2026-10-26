@@ -136,7 +136,8 @@ python main.py
 | ![Kalibrasi](docs/screenshots/calibration.png) | ![Game Over](docs/screenshots/game-over.png) |
 
 **Demonstrasi Gameplay:**
-<video src="https://github.com/user-attachments/assets/69a6a0d5-a175-4474-8f63-da6dcec54170" controls width="640"></video>
+
+https://github.com/user-attachments/assets/69a6a0d5-a175-4474-8f63-da6dcec54170
 
 ---
 
